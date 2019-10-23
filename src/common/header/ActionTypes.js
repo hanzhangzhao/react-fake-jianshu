@@ -1,2 +1,3 @@
 export const SEARCH_FOCUS = 'SEARCH_FOCUS';
 export const SEARCH_BLUR = 'SEARCH_BLUR';
+export const UPDATE_TREND_LIST = 'UPDATE_TREND_LIST';

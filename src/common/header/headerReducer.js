@@ -14,5 +14,9 @@ export default (state = defaultState, action) => {
     if (action.type === ActionTypes.SEARCH_BLUR) {
         return state.set('focused', false);
     }
+    if (action.type === ActionTypes.UPDATE_TREND_LIST) {
+        console.log(action)
+        return state.set('trendList', action.data);
+    }
     return state;
 }

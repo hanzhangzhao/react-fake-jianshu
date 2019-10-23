@@ -9,7 +9,7 @@ import * as actionCreaters from './ActionCreaters';
 class Header extends Component {
 
     showTrending(show) {
-        if (show) {
+        if (this.props.focused) {
             return (
                 <SearchInfo>
                     <SearchInfoTitle>
@@ -17,12 +17,11 @@ class Header extends Component {
                                 <SearchInfoSwitch>Expolore</SearchInfoSwitch>
                     </SearchInfoTitle>
                     <SearchInfoList>
-                        <SearchInfoItem>Programming</SearchInfoItem>
-                        <SearchInfoItem>Travel</SearchInfoItem>
-                        <SearchInfoItem>Food</SearchInfoItem>
-                        <SearchInfoItem>Outdoors</SearchInfoItem>
-                        <SearchInfoItem>Tech</SearchInfoItem>
-                        <SearchInfoItem>Study</SearchInfoItem>
+                        {
+                            this.props.trendList.map((item) => {
+                                return <SearchInfoItem key={item}>{item}</SearchInfoItem>
+                            })
+                        }
                     </SearchInfoList>
                 </SearchInfo>
             )
@@ -48,7 +47,7 @@ class Header extends Component {
                                 </NavSearch>
                             </CSSTransition>
                             <span className='fas fa-search'></span>
-                            {this.showTrending(this.props.focused)}
+                            {this.showTrending()}
                         </SearchWrapper>
                         <HeaderRight>
                             <Button className='writing'>
@@ -66,14 +65,16 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.getIn(['header', 'focused'])
+        focused: state.getIn(['header', 'focused']),
         // focused: state.get('header').get('focused'),
+        trendList: state.getIn(['header', 'trendList']),
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         handleInputFocus() {
+            dispatch(actionCreaters.getTrendList());
             dispatch(actionCreaters.searchFocus());
         },
         handleInputBlur() {
