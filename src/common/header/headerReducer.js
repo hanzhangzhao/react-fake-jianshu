@@ -3,6 +3,7 @@ import { fromJS } from 'immutable';
 
 const defaultState = fromJS({
     focused: false,
+    trendList: [],
 });
 
 export default (state = defaultState, action) => {
