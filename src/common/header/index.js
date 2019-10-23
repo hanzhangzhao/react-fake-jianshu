@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import {
-    Container, HeaderWrapper, Logo, Nav, NavItem, NavSearch, HeaderRight, Button, SearchWrapper
+    Container, HeaderWrapper, Logo, Nav, NavItem, NavSearch, HeaderRight, Button, SearchWrapper, SearchInfo
 } from './style';
 import * as actionCreaters from './ActionCreaters';
 
@@ -22,6 +22,7 @@ const Header = (props) => {
                             </NavSearch>
                         </CSSTransition>
                         <span className='fas fa-search'></span>
+                        <SearchInfo></SearchInfo>
                     </SearchWrapper>
                     <HeaderRight>
                         <Button className='writing'>
@@ -38,7 +39,8 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.header.get('focused'),
+        focused: state.getIn(['header', 'focused'])
+        // focused: state.get('header').get('focused'),
     }
 }
 
