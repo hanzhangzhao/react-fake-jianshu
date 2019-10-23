@@ -8,17 +8,18 @@ import * as actionCreaters from './ActionCreaters';
 
 class Header extends Component {
 
-    showTrending(show) {
-        if (this.props.focused) {
+    showTrending() {
+        const { focused, mouseIn, trendList, handleMouseEnter, handleMouseOut } = this.props;
+        if (focused || mouseIn) {
             return (
-                <SearchInfo>
+                <SearchInfo onMouseEnter={handleMouseEnter} onMouseOut={handleMouseOut}>
                     <SearchInfoTitle>
                         Trending Now
                                 <SearchInfoSwitch>Expolore</SearchInfoSwitch>
                     </SearchInfoTitle>
                     <SearchInfoList>
                         {
-                            this.props.trendList.map((item) => {
+                            trendList.map((item) => {
                                 return <SearchInfoItem key={item}>{item}</SearchInfoItem>
                             })
                         }
@@ -32,6 +33,7 @@ class Header extends Component {
     }
 
     render() {
+        const { focused, handleInputFocus, handleInputBlur, trendList } = this.props;
         return (
             <Container>
                 <HeaderWrapper>
@@ -42,8 +44,8 @@ class Header extends Component {
                         <NavItem className='rightNav'>Login</NavItem>
                         <NavItem className='rightNav'>Aa</NavItem>
                         <SearchWrapper>
-                            <CSSTransition in={this.props.focused} timeout={200} classNames="slide">
-                                <NavSearch className={this.props.focused ? 'focused' : ''} onFocus={this.props.handleInputFocus} onBlur={this.props.handleInputBlur}>
+                            <CSSTransition in={focused} timeout={200} classNames="slide">
+                                <NavSearch className={focused ? 'focused' : ''} onFocus={() => handleInputFocus(trendList)} onBlur={handleInputBlur}>
                                 </NavSearch>
                             </CSSTransition>
                             <span className='fas fa-search'></span>
@@ -68,18 +70,25 @@ const mapStateToProps = (state) => {
         focused: state.getIn(['header', 'focused']),
         // focused: state.get('header').get('focused'),
         trendList: state.getIn(['header', 'trendList']),
+        mouseIn: state.getIn(['header', 'mouseIn']),
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleInputFocus() {
-            dispatch(actionCreaters.getTrendList());
+        handleInputFocus(trendList) {
+            (trendList.size === 0) && dispatch(actionCreaters.getTrendList());
             dispatch(actionCreaters.searchFocus());
         },
         handleInputBlur() {
             dispatch(actionCreaters.searchBlur());
-        }
+        },
+        handleMouseEnter() {
+            dispatch(actionCreaters.searchMouseEnter());
+        },
+        handleMouseOut() {
+            dispatch(actionCreaters.searchMouseOut());
+        },
     }
 }
 

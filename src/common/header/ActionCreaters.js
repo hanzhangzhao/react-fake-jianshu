@@ -13,7 +13,7 @@ export const searchBlur = () => ({
 const updateTrendList = (list) => ({
     type: ActionTypes.UPDATE_TREND_LIST,
     data: fromJS(list)
-})
+});
 
 export const getTrendList = () => {
     return (dispatch) => {
@@ -25,3 +25,11 @@ export const getTrendList = () => {
         })
     }
 };
+
+export const searchMouseEnter = () => ({
+    type: ActionTypes.SEARCH_MOUSE_ENTER,
+});
+
+export const searchMouseOut = () => ({
+    type: ActionTypes.SEARCH_MOUSE_OUT,
+});
