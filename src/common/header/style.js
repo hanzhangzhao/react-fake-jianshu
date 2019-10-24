@@ -8,7 +8,7 @@ WebFont.load({
 })
 
 export const Container = styled.div`
-    position: fixed;
+    // position: fixed;
     right: 0;
     left: 0;
     z-index: 1030;
