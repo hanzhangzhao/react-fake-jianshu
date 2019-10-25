@@ -32,6 +32,7 @@ export const Logo = styled.a`
     width: 100px;
     font-family: 'Poppins', sans-serif;
     font-size: 1.3em;
+    font-weight: 400;
     color: #ea6f5a;
     text-decoration: none;
     line-height: 58px;

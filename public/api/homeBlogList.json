@@ -1,0 +1,31 @@
+{
+    "success": true,
+    "data": {
+        "blogList": [
+            {
+                "id": 5,
+                "title": "How do the main parties compare on these issues?",
+                "content": "Read the policies and promises of the six main parties on this election's pressing issues.These will be updated as parties add to their platforms ahead of the Oct. 21 election.",
+                "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7_rjVXxRoguCNfl7hfBjcwWxGV_mamIZeUzDl347LbfyWd6OSHA&s"
+            },
+            {
+                "id": 6,
+                "title": "How do the main parties compare on these issues?",
+                "content": "Read the policies and promises of the six main parties on this election's pressing issues.These will be updated as parties add to their platforms ahead of the Oct. 21 election.",
+                "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7_rjVXxRoguCNfl7hfBjcwWxGV_mamIZeUzDl347LbfyWd6OSHA&s"
+            },
+            {
+                "id": 7,
+                "title": "How do the main parties compare on these issues?",
+                "content": "Read the policies and promises of the six main parties on this election's pressing issues.These will be updated as parties add to their platforms ahead of the Oct. 21 election.",
+                "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7_rjVXxRoguCNfl7hfBjcwWxGV_mamIZeUzDl347LbfyWd6OSHA&s"
+            },
+            {
+                "id": 8,
+                "title": "How do the main parties compare on these issues?",
+                "content": "Read the policies and promises of the six main parties on this election's pressing issues.These will be updated as parties add to their platforms ahead of the Oct. 21 election.",
+                "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7_rjVXxRoguCNfl7hfBjcwWxGV_mamIZeUzDl347LbfyWd6OSHA&s"
+            }
+        ]
+    }
+}

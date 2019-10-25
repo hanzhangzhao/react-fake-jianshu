@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import {
-    Container, HeaderWrapper, Logo, Nav, NavItem, NavSearch, HeaderRight, Button, SearchWrapper, SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoList, SearchInfoItem
-} from './style';
+import { Container, HeaderWrapper, Logo, Nav, NavItem, NavSearch, HeaderRight, Button, SearchWrapper, SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoList, SearchInfoItem } from './style';
 import * as actionCreaters from './ActionCreaters';
 
 class Header extends Component {
@@ -37,7 +36,9 @@ class Header extends Component {
         return (
             <Container>
                 <HeaderWrapper>
-                    <Logo href='/'>HANZHANG</Logo>
+                    <Link to='/'>
+                        <Logo>HANZHANG</Logo>
+                    </Link>
                     <Nav>
                         <NavItem className='leftNav active'>Home</NavItem>
                         <NavItem className='leftNav'>bla</NavItem>

@@ -12,8 +12,8 @@ function App() {
 		<>
 			<GlobalStyle />
 			<Provider store={store}>
-				<Header />
 				<BrowserRouter>
+					<Header />
 					<Route path="/" exact component={Home} />
 					<Route path="/blog" exact component={Blog} />
 				</BrowserRouter>

@@ -1,0 +1,3 @@
+export const GET_HOME_DATA = 'GET_HOME_DATA';
+export const EXTEND_HOME_LIST = 'EXTEND_HOME_LIST';
+export const TOGGLE_SCROLL_TOP = 'TOGGLE_SCROLL_TOP';
