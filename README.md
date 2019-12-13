@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Jianshu style multiuser blog.
+
+Here is a screenshot:
+![capture](public/cap.JPG)
+
 ## Available Scripts
 
 In the project directory, you can run:
