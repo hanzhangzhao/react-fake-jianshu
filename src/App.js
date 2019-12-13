@@ -4,7 +4,8 @@ import Header from './common/header';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { GlobalStyle } from './style.js';
 import Home from './pages/Home/HomeComponent';
-import Blog from './pages/BlogComponent';
+import Blog from './pages/Blog/BlogComponent';
+import Login from './pages/Login/LoginComponent';
 import store from './store';
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
 				<BrowserRouter>
 					<Header />
 					<Route path="/" exact component={Home} />
-					<Route path="/blog" exact component={Blog} />
+					<Route path="/blog/:id" exact component={Blog} />
+					<Route path="/login" exact component={Login} />
 				</BrowserRouter>
 			</Provider>
 		</>

@@ -49,19 +49,19 @@
                 "id": 1,
                 "name": "Hanzhang",
                 "blogNum": 3,
-                "imgUrl": "//cdn2.jianshu.io/assets/default_avatar/15-a7ac401939dd4df837e3bbf82abaa2a8.jpg"
+                "imgUrl": "../avatar1.jpg"
             },
             {
                 "id": 2,
                 "name": "Han",
                 "blogNum": 3,
-                "imgUrl": "//cdn2.jianshu.io/assets/default_avatar/15-a7ac401939dd4df837e3bbf82abaa2a8.jpg"
+                "imgUrl": "../avatar2.jpg"
             },
             {
                 "id": 3,
                 "name": "Ha Ha Ha",
                 "blogNum": 1,
-                "imgUrl": "//cdn2.jianshu.io/assets/default_avatar/15-a7ac401939dd4df837e3bbf82abaa2a8.jpg"
+                "imgUrl": "../avatar3.jpg"
             }
         ]
     }

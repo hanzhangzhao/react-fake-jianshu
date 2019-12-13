@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { Container, HeaderWrapper, Logo, Nav, NavItem, NavSearch, HeaderRight, Button, SearchWrapper, SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoList, SearchInfoItem } from './style';
 import * as actionCreaters from './ActionCreaters';
+import { withRouter } from "react-router";
+import * as loginActionCreaters from '../../pages/Login/store/ActionCreaters'
 
 class Header extends Component {
 
@@ -32,7 +34,10 @@ class Header extends Component {
     }
 
     render() {
-        const { focused, handleInputFocus, handleInputBlur, trendList } = this.props;
+        const { focused, handleInputFocus, handleInputBlur, trendList, logined, logoutUser } = this.props;
+        if (this.props.history.location.pathname === '/login') {
+            return null;
+        }
         return (
             <Container>
                 <HeaderWrapper>
@@ -40,10 +45,14 @@ class Header extends Component {
                         <Logo>HANZHANG</Logo>
                     </Link>
                     <Nav>
-                        <NavItem className='leftNav active'>Home</NavItem>
-                        <NavItem className='leftNav'>bla</NavItem>
-                        <NavItem className='rightNav'>Login</NavItem>
-                        <NavItem className='rightNav'>Aa</NavItem>
+                        <Link to='/'>
+                            <NavItem className='leftNav active'>Home</NavItem>
+                        </Link>
+                        {/* <NavItem className='leftNav'>bla</NavItem> */}
+                        {
+                            logined ? <Link to='/'><NavItem className='rightNav' onClick={logoutUser}>Logout</NavItem></Link> : <Link to='/login'><NavItem className='rightNav'>Login</NavItem></Link>
+                        }
+                        <NavItem className='rightNav'>En/中</NavItem>
                         <SearchWrapper>
                             <CSSTransition in={focused} timeout={200} classNames="slide">
                                 <NavSearch className={focused ? 'focused' : ''} onFocus={() => handleInputFocus(trendList)} onBlur={handleInputBlur}>
@@ -56,7 +65,7 @@ class Header extends Component {
                             <Button className='writing'>
                                 <span className="fas fa-feather-alt"></span>
                                 &nbsp;Write Article
-                        </Button>
+                            </Button>
                             <Button className='reg'>Register</Button>
                         </HeaderRight>
                     </Nav>
@@ -72,6 +81,7 @@ const mapStateToProps = (state) => {
         // focused: state.get('header').get('focused'),
         trendList: state.getIn(['header', 'trendList']),
         mouseIn: state.getIn(['header', 'mouseIn']),
+        logined: state.getIn(['login', 'logined']),
     }
 }
 
@@ -90,7 +100,11 @@ const mapDispatchToProps = (dispatch) => {
         handleMouseOut() {
             dispatch(actionCreaters.searchMouseOut());
         },
+
+        logoutUser() {
+            dispatch(loginActionCreaters.logoutUser());
+        }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));

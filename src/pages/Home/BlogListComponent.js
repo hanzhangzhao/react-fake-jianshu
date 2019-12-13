@@ -12,7 +12,7 @@ class BlogList extends PureComponent {
                 {
                     blogList.map((item, index) => {
                         return (
-                            <Link to='detail' key={index}>
+                            <Link to={'/blog/' + item.get('id')} key={index}>
                                 <BlogListItem >
                                     <img className='blogImg' src={item.get('imgUrl')} alt='blogPic' />
                                     <BlogListContent>
