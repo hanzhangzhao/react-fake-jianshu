@@ -1,9 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 Jianshu style multiuser blog.
 
 Here is a screenshot:
 ![capture](public/cap.JPG)
+
+![capture](public/cap2.JPG)
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
